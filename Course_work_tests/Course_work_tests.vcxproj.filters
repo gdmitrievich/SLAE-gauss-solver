@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mtrx_ctor.cpp">
+      <Filter>Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="mtrx_func_operator.cpp">
+      <Filter>Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="fraction_ctor.cpp">
+      <Filter>Fraction</Filter>
+    </ClCompile>
+    <ClCompile Include="fraction_assignment_operator.cpp">
+      <Filter>Fraction</Filter>
+    </ClCompile>
+    <ClCompile Include="fraction_boolean_operations.cpp">
+      <Filter>Fraction</Filter>
+    </ClCompile>
+    <ClCompile Include="mtrx_resize.cpp">
+      <Filter>Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="find_indent_to_non_zero_row_element.cpp">
+      <Filter>Main_programm</Filter>
+    </ClCompile>
+    <ClCompile Include="fixture.cpp">
+      <Filter>Main_programm</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="fraction_fixture.h">
+      <Filter>Fraction</Filter>
+    </ClInclude>
+    <ClInclude Include="fraction_arithmetic_operations.cpp">
+      <Filter>Fraction</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Matrix">
+      <UniqueIdentifier>{625430c9-8e5f-41bb-b528-b029b8f5a6fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fraction">
+      <UniqueIdentifier>{d209355f-b2c2-4ca0-a184-08faa6fe3a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main_programm">
+      <UniqueIdentifier>{24afe13a-46c2-4647-a164-05ce2051c78a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

@@ -3,12 +3,12 @@
 #include "matrix.h"
 
 template <typename T>
-Matrix<T>::Matrix() : data_(), rows_(), cols_() {} // Конструктор по умолчанию.
+Matrix<T>::Matrix() : data_(), rows_(), cols_() {} // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.
 
 template <typename T>
 Matrix<T>::Matrix(std::size_t rows) :
     rows_(rows),
-    cols_(1) { // Конструктор создающий матрицу размерностью rows x 1.
+    cols_(1) { // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃРѕР·РґР°СЋС‰РёР№ РјР°С‚СЂРёС†Сѓ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊСЋ rows x 1.
     data_ = new T* [rows_] {
     };
     for (std::size_t i = 0; i < rows_; ++i)
@@ -18,7 +18,7 @@ Matrix<T>::Matrix(std::size_t rows) :
 template <typename T>
 Matrix<T>::Matrix(const Matrix<T>& m) :
     rows_(m.rows_),
-    cols_(m.cols_) { // Конструктор копирования.
+    cols_(m.cols_) { // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ.
     data_ = new T* [rows_] {
     };
     for (std::size_t i = 0; i < rows_; ++i)
@@ -32,7 +32,7 @@ Matrix<T>::Matrix(const Matrix<T>& m) :
 template <typename T>
 Matrix<T>::Matrix(std::size_t rows, std::size_t cols) :
     rows_(rows),
-    cols_(cols) { // Конструктор создающий матрицу размерностью rows x cols.
+    cols_(cols) { // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃРѕР·РґР°СЋС‰РёР№ РјР°С‚СЂРёС†Сѓ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊСЋ rows x cols.
     data_ = new T* [rows_] {
     };
     for (std::size_t i = 0; i < rows_; ++i)
@@ -40,8 +40,8 @@ Matrix<T>::Matrix(std::size_t rows, std::size_t cols) :
 }
 
 template <typename T>
-Matrix<T>::~Matrix() { // Деструктор, освобождающий выделенную память под эл-ты
-                       // матрицы.
+Matrix<T>::~Matrix() { // Р”РµСЃС‚СЂСѓРєС‚РѕСЂ, РѕСЃРІРѕР±РѕР¶РґР°СЋС‰РёР№ РІС‹РґРµР»РµРЅРЅСѓСЋ РїР°РјСЏС‚СЊ РїРѕРґ СЌР»-С‚С‹
+                       // РјР°С‚СЂРёС†С‹.
     for (std::size_t i = 0; i < rows_; ++i)
         delete[] data_[i];
     delete[] data_;
@@ -49,8 +49,8 @@ Matrix<T>::~Matrix() { // Деструктор, освобождающий выделенную память под эл-ты
 
 template <typename T>
 T& Matrix<T>::operator()(std::size_t row,
-                         std::size_t col) { // Возвращает ссылку на элемент
-                                            // матрицы под индексом row, col.
+                         std::size_t col) { // Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃСЃС‹Р»РєСѓ РЅР° СЌР»РµРјРµРЅС‚
+                                            // РјР°С‚СЂРёС†С‹ РїРѕРґ РёРЅРґРµРєСЃРѕРј row, col.
     if (row <= 0 || row > rows_ || col <= 0 || col > cols_) {
         throw std::invalid_argument("Index was out of range");
     }
@@ -60,7 +60,7 @@ T& Matrix<T>::operator()(std::size_t row,
 
 template <typename T>
 T Matrix<T>::operator()(std::size_t row, std::size_t col)
-    const { // Возвращает копию элемента матрицы под индексом row, col.
+    const { // Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕРїРёСЋ СЌР»РµРјРµРЅС‚Р° РјР°С‚СЂРёС†С‹ РїРѕРґ РёРЅРґРµРєСЃРѕРј row, col.
     if (row <= 0 || row > rows_ || col <= 0 || col > cols_) {
         throw std::invalid_argument("Index was out of range");
     }
@@ -70,38 +70,38 @@ T Matrix<T>::operator()(std::size_t row, std::size_t col)
 
 template <typename T>
 inline std::size_t Matrix<T>::getRows()
-    const { // Возвращает кол-во рядов матрицы.
+    const { // Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»-РІРѕ СЂСЏРґРѕРІ РјР°С‚СЂРёС†С‹.
     return rows_;
 }
 
 template <typename T>
 inline std::size_t Matrix<T>::getCols()
-    const { // Возвращает кол-во столбцов матрицы.
+    const { // Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°С‚СЂРёС†С‹.
     return cols_;
 }
 
 template <typename T>
 void Matrix<T>::resize(std::size_t rows,
-                       std::size_t cols) { // Изменяет размерность матрицы.
-    // Инициализация нового массива размерности rows x cols.
+                       std::size_t cols) { // РР·РјРµРЅСЏРµС‚ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°С‚СЂРёС†С‹.
+    // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РЅРѕРІРѕРіРѕ РјР°СЃСЃРёРІР° СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё rows x cols.
     T** newData = new T* [rows] {
     };
     for (std::size_t i = 0; i < rows; ++i)
         newData[i] = new T[cols] {};
 
-    // Копия элементов из старой матрицы (data_) в новую (newData), которые
-    // одновременно существуют как в старой, так и в новой матрицах.
+    // РљРѕРїРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РёР· СЃС‚Р°СЂРѕР№ РјР°С‚СЂРёС†С‹ (data_) РІ РЅРѕРІСѓСЋ (newData), РєРѕС‚РѕСЂС‹Рµ
+    // РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ СЃСѓС‰РµСЃС‚РІСѓСЋС‚ РєР°Рє РІ СЃС‚Р°СЂРѕР№, С‚Р°Рє Рё РІ РЅРѕРІРѕР№ РјР°С‚СЂРёС†Р°С….
     std::size_t minRows = rows_ < rows ? rows_ : rows;
     std::size_t minCols = cols_ < cols ? cols_ : cols;
     for (std::size_t i = 0, j; i < minRows; ++i)
         for (j = 0; j < minCols; ++j)
             newData[i][j] = data_[i][j];
 
-    // Освобождение старых данных.
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ СЃС‚Р°СЂС‹С… РґР°РЅРЅС‹С….
     for (std::size_t i = 0; i < rows_; ++i)
         delete[] data_[i];
     delete[] data_;
-    data_ = newData; // Присваивание новых данных текущему объекту.
+    data_ = newData; // РџСЂРёСЃРІР°РёРІР°РЅРёРµ РЅРѕРІС‹С… РґР°РЅРЅС‹С… С‚РµРєСѓС‰РµРјСѓ РѕР±СЉРµРєС‚Сѓ.
 
     rows_ = rows;
     cols_ = cols;
@@ -110,7 +110,7 @@ void Matrix<T>::resize(std::size_t rows,
 template <typename T>
 std::ostream& operator<<(
     std::ostream& os,
-    const Matrix<T>& m) { // Выводит матрицу на консоль в матричном виде.
+    const Matrix<T>& m) { // Р’С‹РІРѕРґРёС‚ РјР°С‚СЂРёС†Сѓ РЅР° РєРѕРЅСЃРѕР»СЊ РІ РјР°С‚СЂРёС‡РЅРѕРј РІРёРґРµ.
     std::size_t rows = m.getRows();
     std::size_t cols = m.getCols();
     for (std::size_t i = 1; i <= rows; i++) {

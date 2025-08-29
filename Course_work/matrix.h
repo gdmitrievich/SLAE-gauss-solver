@@ -12,11 +12,11 @@ std::ostream& operator<<(std::ostream& os, const Matrix<T>& m);
 template <typename T>
 class Matrix {
    private:
-    T** data_; // Массив элементов матрицы.
+    T** data_; // РњР°СЃСЃРёРІ СЌР»РµРјРµРЅС‚РѕРІ РјР°С‚СЂРёС†С‹.
 
-    std::size_t rows_; // Кол-во рядов матрицы.
-    std::size_t cols_; // Кол-во столбцов матрицы.
-    
+    std::size_t rows_; // РљРѕР»-РІРѕ СЂСЏРґРѕРІ РјР°С‚СЂРёС†С‹.
+    std::size_t cols_; // РљРѕР»-РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°С‚СЂРёС†С‹.
+
    public:
     Matrix();
     explicit Matrix(std::size_t rows);
@@ -28,7 +28,7 @@ class Matrix {
 
     T& operator()(std::size_t row, std::size_t col);
     T operator()(std::size_t row, std::size_t col) const;
-    
+
     std::size_t getRows() const;
     std::size_t getCols() const;
 

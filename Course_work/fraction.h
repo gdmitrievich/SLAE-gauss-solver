@@ -6,7 +6,7 @@
 struct Fraction {
    private:
     int gcd(int a, int b) const;
-    
+
     Fraction& shrink();
     Fraction& getShrinkedCopy() const;
 
@@ -35,7 +35,6 @@ struct Fraction {
     bool operator>=(const Fraction& f) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
-    // Think about it later..
     friend std::istream& operator>>(std::istream& is, Fraction& f);
 };
 
